@@ -1,1 +1,2 @@
-A Flask app.
+CI for a Flask app.
+
