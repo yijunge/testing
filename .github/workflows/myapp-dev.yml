@@ -21,14 +21,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-
-    # Get the version for the image
-    - name: Set up version
-      id: version
-      run: |
-        # Get version from git tag or fallback to the default version
-        VERSION=$(git describe --tags --abbrev=0 || echo "v0.0.1")
-        echo "VERSION=$VERSION" >> $GITHUB_ENV
         
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
@@ -55,6 +47,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    
+    # Get the version for the image
+    - name: Set up version
+    id: version
+    run: |
+      # Get version from git tag or fallback to the default version
+      VERSION=$(git describe --tags --abbrev=0 || echo "v0.0.1")
+      echo "VERSION=$VERSION" >> $GITHUB_ENV
+
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
 
