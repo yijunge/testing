@@ -1,4 +1,4 @@
-== CI for a Flask app ==
+## CI for a Flask app 
 
 
 Send a GET request to '/'
